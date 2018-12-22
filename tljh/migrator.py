@@ -36,7 +36,8 @@ def migrate_file(old_path, new_path):
             i += 1
         logger.warning(f"Found file in both old ({old_path}) and new ({new_path}).")
         logger.warning(
-            f"Moving {old_path} to {dest} to avoid clobbering.  Its contents will be ignored."
+            #f"Moving {old_path} to {dest} to avoid clobbering.  Its contents will be ignored."
+            "Moving %s to %s to avoid clobbering.  Its contents will be ignored." % (old_path, dest)
         )
     else:
         dest = new_path
@@ -57,7 +58,8 @@ def migrate_directory(old_dir, new_dir):
             else:
                 migrate_file(src, dest)
     else:
-        logger.warning(f"Moving directory to new location {old_dir} -> {new_dir}")
+        #logger.warning(f"Moving directory to new location {old_dir} -> {new_dir}")
+        logger.warning(f"Moving directory to new location %s -> %s" % (old_dir, new_dir))
         shutil.move(old_dir, new_dir)
 
 
