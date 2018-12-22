@@ -63,7 +63,7 @@ def migrate_directory(old_dir, new_dir):
                 migrate_file(src, dest)
     else:
         #logger.warning(f"Moving directory to new location {old_dir} -> {new_dir}")
-        logger.warning(f"Moving directory to new location %s -> %s" % (old_dir, new_dir))
+        logger.warning("Moving directory to new location %s -> %s" % (old_dir, new_dir))
         shutil.move(old_dir, new_dir)
 
 
