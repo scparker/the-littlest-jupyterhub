@@ -317,8 +317,8 @@ def ensure_symlinks(prefix):
     tljh_config_src = os.path.join(prefix, 'bin', 'tljh-config')
     tljh_config_dest = '/usr/bin/tljh-config'
 
-    logger.info(tljh_config_src)
-    logger.info(tljh_config_dest)
+    logger.warning(tljh_config_src)
+    logger.warning(tljh_config_dest)
 
     if os.path.exists(tljh_config_dest):
         if os.path.realpath(tljh_config_dest) != tljh_config_src:
