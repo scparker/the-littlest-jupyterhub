@@ -31,7 +31,8 @@ def migrate_file(old_path, new_path):
         i = 0
         while os.path.exists(dest):
             # avoid collisions
-            dest = dest_base + f".{i}"
+            dest = dest_base + ".%s" % i
+            # dest = dest_base + f".{i}"
             i += 1
         logger.warning(f"Found file in both old ({old_path}) and new ({new_path}).")
         logger.warning(
