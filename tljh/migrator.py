@@ -26,7 +26,8 @@ def migrate_file(old_path, new_path):
         # new config file already created! still move the config,
         # but avoid collision
         timestamp = date.today().isoformat()
-        dest = dest_base = f"{new_path}.old.{timestamp}"
+        dest = dest_base = "%s.old.%s" % (new_path, timestamp)
+        #dest = dest_base = f"{new_path}.old.{timestamp}"
         i = 0
         while os.path.exists(dest):
             # avoid collisions
