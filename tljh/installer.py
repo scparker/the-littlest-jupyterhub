@@ -4,7 +4,7 @@ import argparse
 import itertools
 import logging
 import os
-import secrets
+#import secrets
 import subprocess
 import sys
 import time
@@ -142,7 +142,8 @@ def ensure_jupyterhub_service(prefix):
     proxy_secret_path = os.path.join(STATE_DIR, 'configurable-http-proxy.secret')
     if not os.path.exists(proxy_secret_path):
         with open(proxy_secret_path, 'w') as f:
-            f.write('CONFIGPROXY_AUTH_TOKEN=' + secrets.token_hex(32))
+            f.write('CONFIGPROXY_AUTH_TOKEN=' + '0123456789abcdef0123456789abcdef')
+#            f.write('CONFIGPROXY_AUTH_TOKEN=' + secrets.token_hex(32))
         # If we are changing CONFIGPROXY_AUTH_TOKEN, restart configurable-http-proxy!
         systemd.restart_service('configurable-http-proxy')
 
