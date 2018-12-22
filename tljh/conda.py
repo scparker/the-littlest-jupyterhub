@@ -5,6 +5,7 @@ import os
 import subprocess
 import json
 import hashlib
+import logger
 import contextlib
 import tempfile
 import urllib.request
@@ -50,7 +51,6 @@ def download_miniconda_installer(version, md5sum):
     """
     with tempfile.NamedTemporaryFile() as f:
         installer_url = "https://repo.continuum.io/miniconda/Miniconda3-{}-Linux-x86_64.sh".format(version)
-        logger.info("Installing from: %s" % installer_url)
         urllib.request.urlretrieve(installer_url, f.name)
 
         if md5_file(f.name) != md5sum:
