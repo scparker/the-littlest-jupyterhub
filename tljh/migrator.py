@@ -35,7 +35,7 @@ def migrate_file(old_path, new_path):
             # dest = dest_base + f".{i}"
             i += 1
         #logger.warning(f"Found file in both old ({old_path}) and new ({new_path}).")
-        logger.warning("Found file in both old (%s) and new ({%s})." % (old_path, new_path)
+        logger.warning("Found file in both old (%s) and new ({%s})." % (old_path, new_path))
         #logger.warning(
             #f"Moving {old_path} to {dest} to avoid clobbering.  Its contents will be ignored."
         #)
