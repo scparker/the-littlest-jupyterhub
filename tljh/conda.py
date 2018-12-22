@@ -52,8 +52,8 @@ def download_miniconda_installer(version, md5sum):
     """
     with tempfile.NamedTemporaryFile() as f:
         installer_url = "https://repo.continuum.io/miniconda/Miniconda3-{}-Linux-armv71.sh".format(version)
-        urllib.request.urlretrieve(installer_url, f.name)
         logger.info("Installed URL:  %s" % installer_url)
+        urllib.request.urlretrieve(installer_url, f.name)
         logger.info("MD5 file:  %s" % md5_file(f.name))
         
         if md5_file(f.name) != md5sum:
