@@ -36,12 +36,14 @@ def main():
     # Support only Ubuntu 18.04+
     distro = get_os_release_variable('ID')
     version = float(get_os_release_variable('VERSION_ID'))
+    """
     if distro != 'ubuntu':
         print('The Littlest JupyterHub currently supports Ubuntu Linux only')
         sys.exit(1)
     elif float(version) < 18.04:
         print('The Littlest JupyterHub requires Ubuntu 18.04 or higher')
         sys.exit(1)
+    """
 
     install_prefix = os.environ.get('TLJH_INSTALL_PREFIX', '/opt/tljh')
     hub_prefix = os.path.join(install_prefix, 'hub')
