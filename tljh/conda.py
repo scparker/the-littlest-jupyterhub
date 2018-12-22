@@ -4,13 +4,14 @@ Wrap conda commandline program
 import os
 import subprocess
 import json
+import logging
 import hashlib
-import logger
 import contextlib
 import tempfile
 import urllib.request
 from distutils.version import LooseVersion as V
 
+logger = logging.getLogger('tljh')
 
 def md5_file(fname):
     """
@@ -50,6 +51,7 @@ def download_miniconda_installer(version, md5sum):
     block to run.
     """
     with tempfile.NamedTemporaryFile() as f:
+        logger.info("Installed URL:  %s" % installer_url)
         installer_url = "https://repo.continuum.io/miniconda/Miniconda3-{}-Linux-x86_64.sh".format(version)
         urllib.request.urlretrieve(installer_url, f.name)
 
